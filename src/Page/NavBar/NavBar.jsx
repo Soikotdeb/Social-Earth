@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router
-import logo from "../../img/logo.jpg"
+ import logo from "../../img/logo.jpg"
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
