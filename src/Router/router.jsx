@@ -9,6 +9,7 @@ import NotFound from "../Page/ErrorPage/NotFound";
 
 
 
+
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
             path:'/',
             element:<Home></Home>
         },
+    
         
        
 
