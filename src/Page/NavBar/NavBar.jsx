@@ -1,9 +1,15 @@
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
- import logo from "../../img/logo.jpg"
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import logo from "../../img/logo.jpg";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     return (
         <nav className="bg-white border-b border-gray-200 w-full fixed top-0 z-50">
@@ -11,24 +17,24 @@ const NavBar = () => {
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0 flex items-center">
-                            <img src={logo} alt="Social Earth Logo" className="h-14 w-auto mr-10 rounded-full" />
+                            <Link to={"/"}><img src={logo} alt="Social Earth Logo" className="h-14 w-auto mr-10 rounded-full" /></Link>
                         </div>
                         <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-60">
-                            <Link to="#" className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <button onClick={() => handleNavigation('/home')} className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Home
-                            </Link>
-                            <Link to="#" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            </button>
+                            <button onClick={() => handleNavigation('/friend-request')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Friend Request
-                            </Link>
-                            <Link to="#" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            </button>
+                            <button onClick={() => handleNavigation('/video')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Video
-                            </Link>
-                            <Link to="#" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            </button>
+                            <button onClick={() => handleNavigation('/chat')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Chat
-                            </Link>
-                            <Link to="#" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            </button>
+                            <button onClick={() => handleNavigation('/menu')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Menu
-                            </Link>
+                            </button>
                         </div>
                     </div>
                     <div className="sm:hidden flex items-center">
@@ -56,21 +62,21 @@ const NavBar = () => {
 
             <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu">
                 <div className="pt-2 pb-3 space-y-1">
-                    <Link to="#" className="border-indigo-500 text-gray-900 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <button onClick={() => handleNavigation('/home')} className="border-indigo-500 text-gray-900 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         Home
-                    </Link>
-                    <Link to="#" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    </button>
+                    <button onClick={() => handleNavigation('/friend-request')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         Friend Request
-                    </Link>
-                    <Link to="#" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    </button>
+                    <button onClick={() => handleNavigation('/video')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         Video
-                    </Link>
-                    <Link to="#" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    </button>
+                    <button onClick={() => handleNavigation('/chat')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         Chat
-                    </Link>
-                    <Link to="#" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    </button>
+                    <button onClick={() => handleNavigation('/menu')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         Menu
-                    </Link>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -78,3 +84,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
