@@ -12,6 +12,8 @@ import { IoCreateOutline } from "react-icons/io5";
 import { MdAddPhotoAlternate, MdLocalActivity } from "react-icons/md";
 import { RiLiveLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import LiveEvent from "../LiveEvent/LiveEvent";
+import FollowSuggestion from "../FollowSuggestion/FollowSuggestion";
 
 const MainContent = () => {
   const stories = [
@@ -169,17 +171,13 @@ const MainContent = () => {
             </div>
           ))}
         </div>
+          {/* live event */}
+            <LiveEvent></LiveEvent>
 
+{/* follow Suggestion */}
+        <FollowSuggestion></FollowSuggestion>
 
-                {/* Follow Suggestions */}
-        <div className="bg-white p-4 rounded-lg shadow mb-4">
-          <h2 className="text-xl font-semibold mb-4">Follow Suggestions</h2>
-          {posts.map((post, index) => (
-            <div key={index} className="mb-4 p-4 bg-gray-100 rounded-lg">
-              {post.content}
-            </div>
-          ))}
-        </div>
+       
       </div>
     </>
   );

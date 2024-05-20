@@ -4,6 +4,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import HomeView from '../HomeView/HomeView';
+import Footer from '../footer/Footer';
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
                     <Route path="/menu" element={<div>This is the menu view</div>} />
                 </Routes>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
