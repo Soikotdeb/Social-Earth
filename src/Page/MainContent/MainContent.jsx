@@ -14,18 +14,10 @@ import { RiLiveLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import LiveEvent from "../LiveEvent/LiveEvent";
 import FollowSuggestion from "../FollowSuggestion/FollowSuggestion";
+import Story from "../Stories/Story";
 
 const MainContent = () => {
-  const stories = [
-    { image: "story1.jpg", title: "Story 1" },
-    { image: "story2.jpg", title: "Story 2" },
-    { image: "story2.jpg", title: "Story 3" },
-    { image: "story2.jpg", title: "Story 4" },
-    { image: "story2.jpg", title: "Story 5" },
-    { image: "story2.jpg", title: "Story 6" },
-    { image: "story2.jpg", title: "Story 7" },
-    // Add more stories as needed
-  ];
+
 
   const posts = [
     {
@@ -44,19 +36,7 @@ const MainContent = () => {
     <>
       {/* Main Content */}
       <div className="w-full md:w-1/2 h-screen overflow-y-auto p-4">
-        <div className="bg-white p-4 rounded-lg shadow mb-4">
-          <h2 className="text-xl font-semibold mb-4">Stories</h2>
-          <div className="flex space-x-4 overflow-x-scroll">
-            {stories.map((story, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-lg"
-              >
-                {story.title}
-              </div>
-            ))}
-          </div>
-        </div>
+       <Story></Story>
         <div className="bg-white p-4 rounded-lg shadow mb-4">
           <div className="w-full mb-4">
             {/* search */}

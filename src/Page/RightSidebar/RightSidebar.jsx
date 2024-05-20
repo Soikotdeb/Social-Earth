@@ -1,4 +1,10 @@
 import React from 'react';
+import FriendRequest from '../RightSidebarAllFeature/FriendRequest/FriendRequest';
+import ConfirmedFriend from '../RightSidebarAllFeature/ConfirmedFriend/ConfirmedFriend';
+import SuggestPages from '../RightSidebarAllFeature/SuggestPage/SuggestPages';
+import RightSidebarEvents from '../RightSidebarAllFeature/Events/RightSidebarEvents';
+import PhotoGallery from '../RightSidebarAllFeature/PhotoGallery/PhotoGallery';
+import PopularGroup from '../RightSidebarAllFeature/PopularGroup/PopularGroup';
 
 const RightSidebar = () => {
     return (
@@ -7,27 +13,26 @@ const RightSidebar = () => {
              <div className="w-full md:w-1/4 h-screen overflow-y-auto p-4">
                     <div className="bg-white p-4 rounded-lg shadow mb-4">
                         <h2 className="text-xl font-semibold mb-4">Friend Requests</h2>
-                        {/* Friend request items */}
+                        <FriendRequest></FriendRequest>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow mb-4">
                         <h2 className="text-xl font-semibold mb-4">Confirm Friends</h2>
-                        {/* Friend confirmation items */}
+                       <ConfirmedFriend></ConfirmedFriend>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow mb-4">
                         <h2 className="text-xl font-semibold mb-4">Suggest Pages</h2>
-                        {/* Suggested pages items */}
+                       <SuggestPages></SuggestPages>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow mb-4">
-                        <h2 className="text-xl font-semibold mb-4">Events</h2>
-                        {/* Event items */}
+                       <RightSidebarEvents></RightSidebarEvents>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow mb-4">
-                        <h2 className="text-xl font-semibold mb-4">Photos</h2>
-                        {/* Photo items */}
+                        <h2 className="text-xl font-semibold mb-4">Photos Gallery</h2>
+                      <PhotoGallery></PhotoGallery>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow">
                         <h2 className="text-xl font-semibold mb-4">Popular Groups</h2>
-                        {/* Popular groups items */}
+                       <PopularGroup></PopularGroup>
                     </div>
                 </div>
         </>
