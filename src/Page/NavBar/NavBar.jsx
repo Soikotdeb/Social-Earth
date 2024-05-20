@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { Link, useNavigate } from 'react-router-dom';
+import { FaSearch, FaBell, FaSun, FaUserCircle } from 'react-icons/fa';
+import { IoMdHome, IoMdVideocam, IoMdChatbubbles, IoMdPersonAdd } from 'react-icons/io';
 import logo from "../../img/logo.jpg";
 
 const NavBar = () => {
@@ -15,29 +17,49 @@ const NavBar = () => {
         <nav className="bg-white border-b border-gray-200 w-full fixed top-0 z-50">
             <div className="w-full px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
-                    <div className="flex items-center">
+                    {/* Left side with logo and search */}
+                    <div className="flex items-center space-x-4">
                         <div className="flex-shrink-0 flex items-center">
-                            <Link to={"/"}><img src={logo} alt="Social Earth Logo" className="h-14 w-auto mr-10 rounded-full" /></Link>
+                            <Link to="/">
+                                <img src={logo} alt="Social Earth Logo" className="h-14 w-auto rounded-full" />
+                            </Link>
                         </div>
-                        <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-60">
-                            <button onClick={() => handleNavigation('/home')} className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Home
-                            </button>
-                            <button onClick={() => handleNavigation('/friend-request')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Friend Request
-                            </button>
-                            <button onClick={() => handleNavigation('/video')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Video
-                            </button>
-                            <button onClick={() => handleNavigation('/chat')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Chat
-                            </button>
-                            <button onClick={() => handleNavigation('/menu')} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                                Menu
-                            </button>
+                        <div className="relative hidden md:block">
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                className="py-2 pl-10 pr-4 rounded-full border border-gray-300 w-64 focus:outline-none focus:ring focus:border-blue-300"
+                            />
+                            <FaSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500" />
                         </div>
                     </div>
-                    <div className="sm:hidden flex items-center">
+                    {/* Center navigation links */}
+                    <div className="flex items-center space-x-8">
+                        <button onClick={() => handleNavigation('/home')} className="text-gray-900 inline-flex items-center text-sm font-medium hover:text-blue-500">
+                            <IoMdHome className="mr-1" size={24} />
+                            Home
+                        </button>
+                        <button onClick={() => handleNavigation('/video')} className="text-gray-900 inline-flex items-center text-sm font-medium hover:text-blue-500">
+                            <IoMdVideocam className="mr-1" size={24} />
+                            Video
+                        </button>
+                        <button onClick={() => handleNavigation('/chat')} className="text-gray-900 inline-flex items-center text-sm font-medium hover:text-blue-500">
+                            <IoMdChatbubbles className="mr-1" size={24} />
+                            Chat
+                        </button>
+                        <button onClick={() => handleNavigation('/friend-request')} className="text-gray-900 inline-flex items-center text-sm font-medium hover:text-blue-500">
+                            <IoMdPersonAdd className="mr-1" size={24} />
+                            Friend Request
+                        </button>
+                    </div>
+                    {/* Right side with icons */}
+                    <div className="flex items-center space-x-4">
+                        <FaBell size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer" />
+                        <FaSun size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer" />
+                        <FaUserCircle size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer" />
+                    </div>
+                    {/* Mobile menu button */}
+                    <div className="md:hidden flex items-center">
                         <button
                             type="button"
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
@@ -60,22 +82,19 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+            <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu">
                 <div className="pt-2 pb-3 space-y-1">
-                    <button onClick={() => handleNavigation('/home')} className="border-indigo-500 text-gray-900 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <button onClick={() => handleNavigation('/home')} className="text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">
                         Home
                     </button>
-                    <button onClick={() => handleNavigation('/friend-request')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                        Friend Request
-                    </button>
-                    <button onClick={() => handleNavigation('/video')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <button onClick={() => handleNavigation('/video')} className="text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">
                         Video
                     </button>
-                    <button onClick={() => handleNavigation('/chat')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <button onClick={() => handleNavigation('/chat')} className="text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">
                         Chat
                     </button>
-                    <button onClick={() => handleNavigation('/menu')} className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                        Menu
+                    <button onClick={() => handleNavigation('/friend-request')} className="text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">
+                        Friend Request
                     </button>
                 </div>
             </div>
